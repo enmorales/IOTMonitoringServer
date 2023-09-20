@@ -56,12 +56,11 @@ def analyze_data():
             client.publish(topic, message)
             alerts += 1
 
-            if  item["check_value"] > (max_value + min_value) / 2:
+            if item["check_value"] > (max_value + min_value) / 2:
                 message = "WARNING {} {} {}".format(variable, min_value, max_value)
                 topic = '{}/{}/{}/{}/in'.format(country, state, city, user)
                 print(datetime.now(), "Sending alert to {} {}".format(topic, variable))
                 client.publish(topic, message)
-                alerts += 1
 
     print(len(aggregation), "dispositivos revisados")
     print(alerts, "alertas enviadas")

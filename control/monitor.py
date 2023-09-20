@@ -39,7 +39,6 @@ def analyze_data():
         variable = item["measurement__name"]
         max_value = item["measurement__max_value"] or 0
         min_value = item["measurement__min_value"] or 0
-        average_value = item[]
 
         country = item['station__location__country__name']
         state = item['station__location__state__name']
